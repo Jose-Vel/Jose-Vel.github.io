@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Flip Logger</title>
+</head>
+<body>
+
+    <header>
+        <h1>OSRS Flip Logger Form</h1>
+        <p><a href="index.html">Back to Home</a></p>
+    </header>
+
+    <main>
+        <h3>Log a New Flip</h3>
+        <p>Use this form to track your Grand Exchange flips.</p>
+
+        <form action="#" method="get">
+            <fieldset>
+                <legend>Item Details</legend>
+                
+                <div>
+                    <label for="item_name">Item Name:</label>
+                    <input type="text" id="item_name" name="item_name" required>
+                </div>
+                <br>
+                <div>
+                    <label for="user_name">Your In-Game Name:</label>
+                    <input type="text" id="user_name" name="user_name">
+                </div>
+                <br>
+                <div>
+                    <label for="buy_price">Buy Price (ea):</label>
+                    <input type="number" id="buy_price" name="buy_price">
+                </div>
+                <br>
+                <div>
+                    <label for="sell_price">Sell Price (ea):</label>
+                    <input type="number" id="sell_price" name="sell_price">
+                </div>
+                <br>
+                <div>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity">
+                </div>
+                <br>
+                <div>
+                    <label for="flip_date">Date of Flip:</label>
+                    <input type="date" id="flip_date" name="flip_date">
+                </div>
+                <br>
+                <div>
+                    <label for="notes">Notes:</label><br>
+                    <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+                </div>
+                <br>
+                <div>
+                    <p>Item Type:</p>
+                    <input type="radio" id="f2p" name="item_type" value="f2p">
+                    <label for="f2p">Free-to-Play</label><br>
+                    
+                    <input type="radio" id="p2p" name="item_type" value="p2p">
+                    <label for="p2p">Members (P2P)</label>
+                </div>
+                <br>
+                <div>
+                    <input type="submit" value="Log Flip">
+                </div>
+
+            </fieldset>
+        </form>
+    </main>
+
+</body>
+</html>
