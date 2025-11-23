@@ -4,6 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSRS Flip Logger</title>
+    <script>
+        // This function runs when you click the "Calculate Total" button
+        function calculateTotal() {
+            // 1. Gets the value from the "Buy Price" box
+            var price = document.getElementById("buy_price").value;
+            
+            // 2. Gets the value from the "Quantity" box
+            var quantity = document.getElementById("quantity").value;
+            
+            // 3. Multiply them together
+            var total = price * quantity;
+            
+            // 4. Display the result in the paragraph with id="result"
+            document.getElementById("result").innerHTML = "Total Investment Required: " + total + " gp";
+        }
+    </script>
 </head>
 <body>
 
@@ -22,48 +38,56 @@
                 
                 <div>
                     <label for="item_name">Item Name:</label>
-                    <input type="text" id="item_name" name="item_name" required>
+                    <input type="text" id="item_name" name="item_name">
                 </div>
                 <br>
-                <div>
-                    <label for="user_name">Your In-Game Name:</label>
-                    <input type="text" id="user_name" name="user_name">
-                </div>
-                <br>
+
                 <div>
                     <label for="buy_price">Buy Price (ea):</label>
-                    <input type="number" id="buy_price" name="buy_price">
+                    <input type="number" id="buy_price" name="buy_price" placeholder="e.g. 100">
                 </div>
                 <br>
+
+                <div>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="e.g. 50">
+                </div>
+                <br>
+
+                <div>
+                    <button type="button" onclick="calculateTotal()">Calculate Investment Cost</button>
+                    <p id="result" style="color: green; font-weight: bold;">Total Investment Required: 0 gp</p>
+                </div>
+                <br>
+
                 <div>
                     <label for="sell_price">Sell Price (ea):</label>
                     <input type="number" id="sell_price" name="sell_price">
                 </div>
                 <br>
                 <div>
-                    <label for="quantity">Quantity:</label>
-                    <input type="number" id="quantity" name="quantity">
+                    <label for="user_name">In-Game Name:</label>
+                    <input type="text" id="user_name" name="user_name">
                 </div>
                 <br>
                 <div>
-                    <label for="flip_date">Date of Flip:</label>
+                    <label for="flip_date">Date:</label>
                     <input type="date" id="flip_date" name="flip_date">
                 </div>
                 <br>
                 <div>
                     <label for="notes">Notes:</label><br>
-                    <textarea id="notes" name="notes" rows="4" cols="50"></textarea>
+                    <textarea id="notes" name="notes" rows="3" cols="30"></textarea>
                 </div>
                 <br>
                 <div>
-                    <p>Item Type:</p>
                     <input type="radio" id="f2p" name="item_type" value="f2p">
-                    <label for="f2p">Free-to-Play</label><br>
-                    
+                    <label for="f2p">F2P</label>
                     <input type="radio" id="p2p" name="item_type" value="p2p">
-                    <label for="p2p">Members (P2P)</label>
+                    <label for="p2p">P2P</label>
                 </div>
                 <br>
+
                 <div>
                     <input type="submit" value="Log Flip">
                 </div>
