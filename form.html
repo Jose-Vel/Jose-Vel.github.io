@@ -4,20 +4,29 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSRS Flip Logger</title>
-    <script>
-        // This function runs when you click the "Calculate Total" button
+   <script>
         function calculateTotal() {
-            // 1. Gets the value from the "Buy Price" box
+            // 1. Get values
             var price = document.getElementById("buy_price").value;
-            
-            // 2. Gets the value from the "Quantity" box
             var quantity = document.getElementById("quantity").value;
             
-            // 3. Multiply them together
-            var total = price * quantity;
+            // 2. Basic Math
+            var subtotal = price * quantity;
+            var discount = 0;
+            var message = "";
+
+            // 3. DISCOUNT LOGIC
+            // If quantity is 1000 or more, apply 10% discount
+            if (quantity >= 1000) {
+                discount = subtotal * 0.10; // 10% off
+                message = " (Bulk Discount Applied!)";
+            }
+
+            var finalTotal = subtotal - discount;
             
-            // 4. Display the result in the paragraph with id="result"
-            document.getElementById("result").innerHTML = "Total Investment Required: " + total + " gp";
+            // 4. Display Result
+            document.getElementById("result").innerHTML = 
+                "Total: " + finalTotal + " gp" + message;
         }
     </script>
 </head>
