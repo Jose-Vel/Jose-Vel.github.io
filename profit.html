@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>OSRS Profit Calculator</title>
+    <style>
+        /* OSRS THEME CSS */
+        body {
+            background-color: #0c0c0c;
+            /* Uses an external OSRS background texture */
+            background-image: url('https://oldschool.runescape.wiki/w/Main_Menu/Login_screens#/media/File:Login_background_(old).png');
+            color: #ffffff;
+            font-family: Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
+
+        /* The Main Stone Container */
+        .interface-box {
+            background-color: #383023;
+            border: 4px outset #5a5245;
+            padding: 20px;
+            max-width: 450px;
+            margin: 40px auto;
+            box-shadow: 0 0 15px #000;
+        }
+
+        /* Header Text - OSRS Yellow */
+        h1 {
+            color: #ffff00;
+            text-shadow: 2px 2px 0 #000000;
+            margin-top: 0;
+            font-family: 'Times New Roman', serif;
+            font-weight: bold;
+        }
+
+        /* Navigation Links */
+        nav {
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5a5245;
+            padding-bottom: 10px;
+        }
+        nav a {
+            color: #90c040;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        nav a:hover { color: #ffffff; text-shadow: 1px 1px 0 #000; }
+
+        /* Inputs styled like Search Bars */
+        label { font-size: 14px; color: #d99223; font-weight: bold; }
+        
+        input {
+            background-color: #1b160e;
+            color: #ffffff;
+            border: 2px solid #5a5245;
+            padding: 8px;
+            margin: 5px 0 15px 0;
+            width: 80%;
+            text-align: center;
+        }
+
+        /* The 'Red' Button Style */
+        button {
+            background-color: #5d1212;
+            color: #ffffff;
+            border: 2px outset #8a1c1c;
+            padding: 10px 25px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: Verdana, sans-serif;
+        }
+        button:hover {
+            background-color: #7a1818;
+            border: 2px inset #8a1c1c;
+        }
+
+        /* Result Area */
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #262118;
+            border: 2px inset #5a5245;
+            min-height: 50px;
+        }
+        .profit-pos { color: #00ff00; text-shadow: 1px 1px 0 #000; }
+        .profit-neg { color: #ff0000; text-shadow: 1px 1px 0 #000; }
+    </style>
+    <script>
+        function calculateProfit() {
+            var buyPrice = Number(document.getElementById("buy_price").value);
+            var sellPrice = Number(document.getElementById("sell_price").value);
+            var quantity = Number(document.getElementById("qty").value);
+
+            // Logic: 1% Tax
+            var tax = sellPrice * 0.01;
+            var margin = sellPrice - tax - buyPrice;
+            var totalProfit = margin * quantity;
+
+            var resultHTML = "<div style='margin-bottom:5px;'><strong>GE Tax:</strong> <span style='color:#d99223'>" + Math.floor(tax * quantity).toLocaleString() + " gp</span></div>";
+            
+            if (totalProfit >= 0) {
+                resultHTML += "<strong>Net Profit:</strong> <span class='profit-pos'>" + Math.floor(totalProfit).toLocaleString() + " gp</span>";
+            } else {
+                resultHTML += "<strong>Net Loss:</strong> <span class='profit-neg'>" + Math.floor(totalProfit).toLocaleString() + " gp</span>";
+            }
+
+            document.getElementById("results").innerHTML = resultHTML;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="interface-box">
+        <header>
+            <h1>Profit Calculator</h1>
+            <nav>
+                <a href="index.html">HOME</a> | 
+                <a href="links.html">TOOLS</a> |
+                <a href="form.html">LOGGER</a>
+            </nav>
+        </header>
+
+        <label>Buy Price (each):</label><br>
+        <input type="number" id="buy_price" placeholder="0"><br>
+
+        <label>Sell Price (each):</label><br>
+        <input type="number" id="sell_price" placeholder="0"><br>
+
+        <label>Quantity:</label><br>
+        <input type="number" id="qty" placeholder="0"><br>
+
+        <button onclick="calculateProfit()">CALCULATE</button>
+
+        <div id="results" class="result-box">
+            <span style="color: #777; font-size: 12px;">Results will appear here...</span>
+        </div>
+    </div>
+
+</body>
+</html>
