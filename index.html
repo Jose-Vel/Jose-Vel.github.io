@@ -4,69 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>OSRS Economy Guide</title>
+    <style>
+        /* 1. OSRS Background Setup */
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Verdana, sans-serif;
+            background-image: url('https://oldschool.runescape.wiki/images/Login_background_%28old%29.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: #ffffff;
+        }
+
+        /* 2. Main Content Container (Semi-transparent box) */
+        .main-container {
+            background-color: rgba(0, 0, 0, 0.75); /* Dark see-through background */
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 30px;
+            border: 3px solid #5d1212; /* Dragon Red Border */
+            border-radius: 10px;
+            box-shadow: 0 0 20px #000;
+        }
+
+        /* 3. Typography (OSRS Style) */
+        h1, h2 {
+            color: #ffff00; /* OSRS Yellow */
+            text-shadow: 2px 2px 0 #000;
+            text-transform: uppercase;
+            text-align: center;
+        }
+        
+        p {
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* 4. Navigation Menu */
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5d1212;
+            padding-bottom: 15px;
+        }
+        
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        nav li {
+            display: inline-block;
+            margin: 5px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #d4ac0d; /* Gold color */
+            font-weight: bold;
+            font-size: 16px;
+            padding: 5px 10px;
+            text-shadow: 1px 1px 0 #000;
+        }
+
+        nav a:hover {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        /* 5. Image Styling */
+        img {
+            display: block;
+            margin: 10px auto;
+            border: 2px solid #382418;
+            max-width: 100%;
+            height: auto;
+        }
+
+        /* 6. Link Styling in Text */
+        main a {
+            color: #90c040; /* Light Green */
+            font-weight: bold;
+            text-decoration: none;
+        }
+        main a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        /* Bullet Points */
+        ul {
+            list-style-position: inside;
+            padding-left: 20px;
+        }
+    </style>
 </head>
 <body>
 
-    <header>
-        <h1>An Introduction to the OSRS Economy</h1>
-       <nav>
-    <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="terms.html">Merchanting Glossary</a></li>
-        <li><a href="gallery.html">Market Data</a></li>
-        <li><a href="howto.html">How-To Guide</a></li>
-        <li><a href="links.html">Trading Tools</a></li>
-        <li><a href="profit.html">Profit Calculator</a></li>
-    </ul>
-</nav>
-    </header>
+    <div class="main-container">
+        <header>
+            <h1>An Introduction to the OSRS Economy</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="terms.html">Merchanting Glossary</a></li>
+                    <li><a href="gallery.html">Market Data</a></li>
+                    <li><a href="howto.html">How-To Guide</a></li>
+                    <li><a href="links.html">Trading Tools</a></li>
+                    <li><a href="profit.html">Profit Calculator</a></li>
+                </ul>
+            </nav>
+        </header>
 
-    <main>
-        <h2>About Me</h2>
-        <p>
-            My professional background is in the U.S. Air Force, where I specialize in aircraft
-            armament systems. My career has provided some amazing experiences, 
-            including being stationed in Alaska, Arizona, and now Florida. Outside 
-            of my service, my main focus is my family. I have a beautiful wife 
-            and two kids, and we all share a passion for getting outdoors and 
-            exploring, whether it's fishing, going to the beach, or just enjoying the new scenery.
-        </p>
-        <p>
-            When I get some free time, my biggest hobby is playing Old School RuneScape. 
-            My interest goes beyond just playing; as a computer science student, I love 
-            to code my own plugins for the RuneLite client using Python. This technical 
-            side of gaming is what really drew me to the game's complex, player-driven 
-            economy. I find it fascinating to analyze the market and play the in game 
-            Grand Exchange (Stock Market), which is what inspired me to create this entire website.
-        </p>
+        <main>
+            <h2>About Me</h2>
+            <p>
+                My professional background is in the U.S. Air Force, where I specialize in aircraft
+                armament systems. My career has provided some amazing experiences, 
+                including being stationed in Alaska, Arizona, and now Florida. Outside 
+                of my service, my main focus is my family. I have a beautiful wife 
+                and two kids, and we all share a passion for getting outdoors and 
+                exploring, whether it's fishing, going to the beach, or just enjoying the new scenery.
+            </p>
+            <p>
+                When I get some free time, my biggest hobby is playing Old School RuneScape. 
+                My interest goes beyond just playing; as a computer science student, I love 
+                to code my own plugins for the RuneLite client using Python. This technical 
+                side of gaming is what really drew me to the game's complex, player-driven 
+                economy. I find it fascinating to analyze the market and play the in-game 
+                Grand Exchange (Stock Market), which is what inspired me to create this entire website.
+            </p>
 
-        <h2>My Favorite OSRS Links</h2>
-        <ul>
-            <li>
-                <a href="https://oldschool.runescape.wiki/" target="_blank">The OSRS Wiki</a>
-            </li>
-            <li>
-                <a href="https://ge-tracker.com/" target="_blank">GE Tracker</a>
-            </li>
-            <li>
-                <a href="https://runelite.net/" target="_blank">RuneLite Client</a>
-            </li>
-        </ul>
+            <h2>My Favorite OSRS Links</h2>
+            <ul>
+                <li>
+                    <a href="https://oldschool.runescape.wiki/" target="_blank">The OSRS Wiki</a>
+                </li>
+                <li>
+                    <a href="https://ge-tracker.com/" target="_blank">GE Tracker</a>
+                </li>
+                <li>
+                    <a href="https://runelite.net/" target="_blank">RuneLite Client</a>
+                </li>
+            </ul>
 
-        <h2>OSRS Images</h2>
-        <p>The center of the OSRS economy, the Grand Exchange.</p>
-        <img src="ge.jpg" alt="The OSRS Grand Exchange" width="400">
-        
-        <p>The goal of it all: a stack of gold.</p>
-        <img src="gold.jpg" alt="A Max stack of OSRS gold" width="400">
+            <h2>OSRS Images</h2>
+            <p style="text-align: center;">The center of the OSRS economy, the Grand Exchange.</p>
+            <img src="ge.jpg" alt="The OSRS Grand Exchange" width="400">
+            
+            <p style="text-align: center;">The goal of it all: a stack of gold.</p>
+            <img src="gold.jpg" alt="A Max stack of OSRS gold" width="400">
 
-        <h2>Unit 2 Form</h2>
-        <p>
-            Click here to see my Unit 2 form assignment.
-            <a href="form.html">Unit 2 Form</a>
-        </p>
-
+            <h2>Unit 2 Form</h2>
+            <p style="text-align: center;">
+                Click here to see my Unit 2 form assignment.<br>
+                <a href="form.html" style="font-size: 18px;">Unit 2 Form</a>
+            </p>
         </main>
+    </div>
+
+</body>
+</html>
 
 </body>
 </html>
