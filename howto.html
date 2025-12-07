@@ -4,55 +4,102 @@
     <meta charset="UTF-8">
     <title>How to Flip - OSRS Economy Guide</title>
     <style>
-        /* CSS from your Design Document */
+        /* OSRS WEBSITE THEME */
         body {
-            background-color: #383838; /* OSRS Dark Grey */
-            color: #ffffff;            /* White Text */
-            font-family: Arial, sans-serif;
-            margin: 20px;
+            background-color: #151515;
+            color: #3e3529; /* Dark brown text for parchment */
+            font-family: Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
         }
-        h1, h2 {
-            color: #ffff00;            /* OSRS Yellow */
-            text-shadow: 1px 1px 0 #000;
+
+        /* The Parchment Container */
+        .parchment-box {
+            background-color: #d4b881; /* OSRS Parchment Color */
+            border: 3px solid #383023;
+            max-width: 800px;
+            margin: 30px auto;
+            padding: 30px;
+            box-shadow: 0 0 20px #000;
         }
-        a {
-            color: #90c040;            /* Light Green Links */
+
+        /* Headers */
+        h1 {
+            color: #5d1212; /* Dark Red Title */
+            text-align: center;
+            border-bottom: 2px solid #5d1212;
+            padding-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        h2 {
+            color: #2b2b2b;
+            border-bottom: 1px solid #a68f5f;
+            padding-bottom: 5px;
+            margin-top: 25px;
+        }
+
+        /* Navigation Bar */
+        .nav-bar {
+            text-align: center;
+            background-color: #383023;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 2px outset #5a5245;
+        }
+        .nav-bar a {
+            color: #d4b881; /* Parchment color text */
             text-decoration: none;
             font-weight: bold;
+            margin: 0 10px;
+            font-size: 13px;
+            text-transform: uppercase;
         }
-        a:hover {
-            color: #ffffff;
+        .nav-bar a:hover { color: #ffffff; }
+
+        /* Content Styling */
+        p {
+            line-height: 1.6;
+            font-size: 14px;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background-color: #4a4a4a; /* Slightly lighter grey for content box */
-            padding: 20px;
-            border: 2px solid #5d1212; /* Dragon Red Border */
+
+        /* Images & Video */
+        img, iframe {
+            border: 4px solid #5a5245;
+            display: block;
+            margin: 15px auto;
+            max-width: 100%;
         }
+
         .video-wrapper {
-            margin-top: 20px;
             text-align: center;
+            margin-top: 20px;
+            background-color: #cbb079; /* Slightly darker box for video area */
+            padding: 15px;
+            border: 1px solid #a68f5f;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <nav>
-            <a href="index.html">Home</a> | 
-            <a href="terms.html">Glossary</a> | 
-            <a href="gallery.html">Market Data</a> | 
-            <a href="howto.html">How-To</a> | 
-            <a href="links.html">Tools</a>
-        </nav>
+    <div class="nav-bar">
+        <a href="index.html">Home</a> | 
+        <a href="terms.html">Glossary</a> | 
+        <a href="gallery.html">Market Data</a> | 
+        <a href="howto.html">How-To</a> | 
+        <a href="links.html">Tools</a> | 
+        <a href="profit.html">Calculator</a>
+    </div>
 
+    <div class="parchment-box">
         <h1>How to Find a Profitable Flip</h1>
-        <p>Flipping is the art of buying low and selling high. Follow these steps to secure your first profit.</p>
+        <p style="text-align: center; font-style: italic;">"Flipping is the art of buying low and selling high."</p>
 
         <h2>Step 1: Check the Margins</h2>
         <p>Before you commit your gold, you must "margin check" an item. Buy one item at a high price to find the instant-sell price, then sell it back low to find the instant-buy price.</p>
         
+        <img src="https://oldschool.runescape.wiki/images/thumb/Grand_Exchange_interface.png/600px-Grand_Exchange_interface.png" alt="Grand Exchange Interface">
+
         <h2>Step 2: Calculate Your Potential Profit</h2>
         <p>Subtract the Buy Price from the Sell Price. Ensure the gap is wide enough to cover the 1% Grand Exchange Tax.</p>
 
@@ -61,11 +108,13 @@
 
         <h2>Video Tutorial</h2>
         <div class="video-wrapper">
+            <p>Watch this visual guide on how to start flipping with only 1GP.</p>
             <iframe width="560" height="315" 
-            src="https://www.youtube.com/embed/8COkY_ySrBY" 
-            title="Flipping for Beginners" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-            allowfullscreen></iframe>
+                src="https://www.youtube.com/embed/8COkY_ySrBY" 
+                title="Flipping for Beginners" frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
         </div>
     </div>
 
