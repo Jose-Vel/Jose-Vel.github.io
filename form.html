@@ -1,248 +1,241 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2708
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OSRS Flip Logger</title>
+    <style>
+        /* OSRS THEME CSS  */
+        body {
+            background-color: #0c0c0c;
+            background-image: url('https://www.osrsbox.com/osrsbox-db/items-icons/0/12011.png'); /* Texture */
+            color: #ffffff;
+            font-family: Verdana, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+        }
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="en">\
-<head>\
-    <meta charset="UTF-8">\
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-    <title>OSRS Flip Logger</title>\
-    <style>\
-        /* OSRS THEME CSS  */\
-        body \{\
-            background-color: #0c0c0c;\
-            background-image: url('https://www.osrsbox.com/osrsbox-db/items-icons/0/12011.png'); /* Texture */\
-            color: #ffffff;\
-            font-family: Verdana, sans-serif;\
-            text-align: center;\
-            margin: 0;\
-            padding: 20px;\
-        \}\
-\
-        /* Main Interface Container */\
-        .interface-box \{\
-            background-color: #383023; /* Dark Brown Interface */\
-            border: 4px outset #5a5245; /* 3D Bevel */\
-            padding: 20px;\
-            max-width: 500px;\
-            margin: 0 auto;\
-            box-shadow: 0 0 15px #000;\
-            text-align: left; /* Align form text left for readability */\
-        \}\
-\
-        /* Typography */\
-        h1 \{\
-            color: #ffff00; /* OSRS Yellow */\
-            text-shadow: 2px 2px 0 #000;\
-            text-align: center;\
-            margin-top: 0;\
-            font-family: 'Times New Roman', serif;\
-        \}\
-        \
-        p \{ text-align: center; font-size: 13px; color: #ccc; \}\
-\
-        /* Navigation */\
-        nav \{\
-            text-align: center;\
-            margin-bottom: 20px;\
-            border-bottom: 2px solid #5a5245;\
-            padding-bottom: 10px;\
-        \}\
-        nav a \{\
-            color: #90c040;\
-            text-decoration: none;\
-            font-weight: bold;\
-            margin: 0 10px;\
-            font-size: 14px;\
-        \}\
-        nav a:hover \{ color: #fff; \}\
-\
-        /* Form Elements */\
-        fieldset \{\
-            border: 2px groove #5a5245;\
-            padding: 15px;\
-            margin-bottom: 15px;\
-        \}\
-\
-        legend \{\
-            color: #d99223; /* Orange */\
-            font-weight: bold;\
-            padding: 0 5px;\
-        \}\
-\
-        label \{\
-            color: #d99223;\
-            font-weight: bold;\
-            font-size: 13px;\
-            display: inline-block;\
-            width: 120px;\
-        \}\
-\
-        input[type="text"], input[type="number"], input[type="date"], textarea \{\
-            background-color: #1b160e;\
-            color: #fff;\
-            border: 1px solid #5a5245;\
-            padding: 5px;\
-            width: 200px;\
-            font-family: Verdana, sans-serif;\
-        \}\
-\
-        textarea \{ width: 90%; \}\
-\
-        /* Radio Buttons */\
-        .radio-group \{ text-align: center; margin: 10px 0; \}\
-        .radio-group label \{ width: auto; margin-right: 15px; color: #fff; \}\
-\
-        /* Button Styling */\
-        .btn-container \{ text-align: center; margin-top: 15px; \}\
-        \
-        button, input[type="submit"] \{\
-            background-color: #5d1212; /* Red Button */\
-            color: #fff;\
-            border: 2px outset #8a1c1c;\
-            padding: 10px 20px;\
-            font-weight: bold;\
-            cursor: pointer;\
-            font-family: Verdana, sans-serif;\
-            margin: 5px;\
-        \}\
-        \
-        button:hover, input[type="submit"]:hover \{\
-            background-color: #7a1818;\
-            border: 2px inset #8a1c1c;\
-        \}\
-\
-        /* Results Display */\
-        #result \{\
-            background-color: #262118;\
-            border: 2px inset #5a5245;\
-            padding: 10px;\
-            margin-top: 10px;\
-            text-align: center;\
-            font-size: 13px;\
-            color: #ccc;\
-        \}\
-        .profit-pos \{ color: #00ff00; \}\
-        .profit-neg \{ color: #ff0000; \}\
-    </style>\
-    <script>\
-        function calculateTotal() \{\
-            // 1. Get Values\
-            var buyPrice = Number(document.getElementById("buy_price").value);\
-            var sellPrice = Number(document.getElementById("sell_price").value);\
-            var quantity = Number(document.getElementById("quantity").value);\
-\
-            // 2. Calculate Costs\
-            var investment = buyPrice * quantity;\
-            var revenue = sellPrice * quantity;\
-            \
-            // 3. Tax Logic (Using 2% as requested)\
-            var taxRate = 0.02; \
-            var totalTax = revenue * taxRate;\
-\
-            // 4. Profit Logic\
-            var netProfit = revenue - investment - totalTax;\
-\
-            // 5. Construct Message\
-            var message = "<strong>Investment:</strong> " + investment.toLocaleString() + " gp<br>";\
-            message += "<strong>Tax (2%):</strong> " + Math.floor(totalTax).toLocaleString() + " gp<br>";\
-\
-            if (netProfit >= 0) \{\
-                message += "<strong>Net Profit:</strong> <span class='profit-pos'>" + Math.floor(netProfit).toLocaleString() + " gp</span>";\
-            \} else \{\
-                message += "<strong>Net Loss:</strong> <span class='profit-neg'>" + Math.floor(netProfit).toLocaleString() + " gp</span>";\
-            \}\
-\
-            // 6. Display\
-            document.getElementById("result").innerHTML = message;\
-        \}\
-    </script>\
-</head>\
-<body>\
-\
-    <div class="interface-box">\
-        <header>\
-            <h1>OSRS Flip Logger</h1>\
-            <nav>\
-                <a href="index.html">HOME</a> | \
-                <a href="links.html">TOOLS</a> |\
-                <a href="profit.html">CALC</a>\
-            </nav>\
-        </header>\
-\
-        <p>Track your trades and calculate margins.</p>\
-\
-        <form action="#" method="get">\
-            <fieldset>\
-                <legend>Transaction Details</legend>\
-                \
-                <div>\
-                    <label for="item_name">Item Name:</label>\
-                    <input type="text" id="item_name" name="item_name" placeholder="e.g. Abyssal Whip">\
-                </div>\
-                <br>\
-\
-                <div>\
-                    <label for="buy_price">Buy Price:</label>\
-                    <input type="number" id="buy_price" name="buy_price" placeholder="0">\
-                </div>\
-                <br>\
-\
-                <div>\
-                    <label for="quantity">Quantity:</label>\
-                    <input type="number" id="quantity" name="quantity" placeholder="0">\
-                </div>\
-                <br>\
-                \
-                <div>\
-                    <label for="sell_price">Sell Price:</label>\
-                    <input type="number" id="sell_price" name="sell_price" placeholder="0">\
-                </div>\
-\
-                <div class="btn-container">\
-                    <button type="button" onclick="calculateTotal()">Check Profit (w/ Tax)</button>\
-                    <div id="result">Results will appear here...</div>\
-                </div>\
-\
-            </fieldset>\
-\
-            <fieldset>\
-                <legend>Log Details</legend>\
-                \
-                <div>\
-                    <label for="user_name">RSN:</label>\
-                    <input type="text" id="user_name" name="user_name">\
-                </div>\
-                <br>\
-\
-                <div>\
-                    <label for="flip_date">Date:</label>\
-                    <input type="date" id="flip_date" name="flip_date">\
-                </div>\
-                <br>\
-\
-                <div>\
-                    <label for="notes">Notes:</label><br>\
-                    <textarea id="notes" name="notes" rows="3"></textarea>\
-                </div>\
-\
-                <div class="radio-group">\
-                    <input type="radio" id="f2p" name="item_type" value="f2p">\
-                    <label for="f2p">F2P</label>\
-                    <input type="radio" id="p2p" name="item_type" value="p2p">\
-                    <label for="p2p">P2P</label>\
-                </div>\
-\
-                <div class="btn-container">\
-                    <input type="submit" value="Save Log Entry">\
-                </div>\
-            </fieldset>\
-        </form>\
-    </div>\
-\
-</body>\
-</html>}
+        /* Main Interface Container */
+        .interface-box {
+            background-color: #383023; /* Dark Brown Interface */
+            border: 4px outset #5a5245; /* 3D Bevel */
+            padding: 20px;
+            max-width: 500px;
+            margin: 0 auto;
+            box-shadow: 0 0 15px #000;
+            text-align: left; /* Align form text left for readability */
+        }
+
+        /* Typography */
+        h1 {
+            color: #ffff00; /* OSRS Yellow */
+            text-shadow: 2px 2px 0 #000;
+            text-align: center;
+            margin-top: 0;
+            font-family: 'Times New Roman', serif;
+        }
+        
+        p { text-align: center; font-size: 13px; color: #ccc; }
+
+        /* Navigation */
+        nav {
+            text-align: center;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #5a5245;
+            padding-bottom: 10px;
+        }
+        nav a {
+            color: #90c040;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        nav a:hover { color: #fff; }
+
+        /* Form Elements */
+        fieldset {
+            border: 2px groove #5a5245;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+
+        legend {
+            color: #d99223; /* Orange */
+            font-weight: bold;
+            padding: 0 5px;
+        }
+
+        label {
+            color: #d99223;
+            font-weight: bold;
+            font-size: 13px;
+            display: inline-block;
+            width: 120px;
+        }
+
+        input[type="text"], input[type="number"], input[type="date"], textarea {
+            background-color: #1b160e;
+            color: #fff;
+            border: 1px solid #5a5245;
+            padding: 5px;
+            width: 200px;
+            font-family: Verdana, sans-serif;
+        }
+
+        textarea { width: 90%; }
+
+        /* Radio Buttons */
+        .radio-group { text-align: center; margin: 10px 0; }
+        .radio-group label { width: auto; margin-right: 15px; color: #fff; }
+
+        /* Button Styling */
+        .btn-container { text-align: center; margin-top: 15px; }
+        
+        button, input[type="submit"] {
+            background-color: #5d1212; /* Red Button */
+            color: #fff;
+            border: 2px outset #8a1c1c;
+            padding: 10px 20px;
+            font-weight: bold;
+            cursor: pointer;
+            font-family: Verdana, sans-serif;
+            margin: 5px;
+        }
+        
+        button:hover, input[type="submit"]:hover {
+            background-color: #7a1818;
+            border: 2px inset #8a1c1c;
+        }
+
+        /* Results Display */
+        #result {
+            background-color: #262118;
+            border: 2px inset #5a5245;
+            padding: 10px;
+            margin-top: 10px;
+            text-align: center;
+            font-size: 13px;
+            color: #ccc;
+        }
+        .profit-pos { color: #00ff00; }
+        .profit-neg { color: #ff0000; }
+    </style>
+    <script>
+        function calculateTotal() {
+            // 1. Get Values
+            var buyPrice = Number(document.getElementById("buy_price").value);
+            var sellPrice = Number(document.getElementById("sell_price").value);
+            var quantity = Number(document.getElementById("quantity").value);
+
+            // 2. Calculate Costs
+            var investment = buyPrice * quantity;
+            var revenue = sellPrice * quantity;
+            
+            // 3. Tax Logic (Using 2% as requested)
+            var taxRate = 0.02; 
+            var totalTax = revenue * taxRate;
+
+            // 4. Profit Logic
+            var netProfit = revenue - investment - totalTax;
+
+            // 5. Construct Message
+            var message = "<strong>Investment:</strong> " + investment.toLocaleString() + " gp<br>";
+            message += "<strong>Tax (2%):</strong> " + Math.floor(totalTax).toLocaleString() + " gp<br>";
+
+            if (netProfit >= 0) {
+                message += "<strong>Net Profit:</strong> <span class='profit-pos'>" + Math.floor(netProfit).toLocaleString() + " gp</span>";
+            } else {
+                message += "<strong>Net Loss:</strong> <span class='profit-neg'>" + Math.floor(netProfit).toLocaleString() + " gp</span>";
+            }
+
+            // 6. Display
+            document.getElementById("result").innerHTML = message;
+        }
+    </script>
+</head>
+<body>
+
+    <div class="interface-box">
+        <header>
+            <h1>OSRS Flip Logger</h1>
+            <nav>
+                <a href="index.html">HOME</a> | 
+                <a href="links.html">TOOLS</a> |
+                <a href="profit.html">CALC</a>
+            </nav>
+        </header>
+
+        <p>Track your trades and calculate margins.</p>
+
+        <form action="#" method="get">
+            <fieldset>
+                <legend>Transaction Details</legend>
+                
+                <div>
+                    <label for="item_name">Item Name:</label>
+                    <input type="text" id="item_name" name="item_name" placeholder="e.g. Abyssal Whip">
+                </div>
+                <br>
+
+                <div>
+                    <label for="buy_price">Buy Price:</label>
+                    <input type="number" id="buy_price" name="buy_price" placeholder="0">
+                </div>
+                <br>
+
+                <div>
+                    <label for="quantity">Quantity:</label>
+                    <input type="number" id="quantity" name="quantity" placeholder="0">
+                </div>
+                <br>
+                
+                <div>
+                    <label for="sell_price">Sell Price:</label>
+                    <input type="number" id="sell_price" name="sell_price" placeholder="0">
+                </div>
+
+                <div class="btn-container">
+                    <button type="button" onclick="calculateTotal()">Check Profit (w/ Tax)</button>
+                    <div id="result">Results will appear here...</div>
+                </div>
+
+            </fieldset>
+
+            <fieldset>
+                <legend>Log Details</legend>
+                
+                <div>
+                    <label for="user_name">RSN:</label>
+                    <input type="text" id="user_name" name="user_name">
+                </div>
+                <br>
+
+                <div>
+                    <label for="flip_date">Date:</label>
+                    <input type="date" id="flip_date" name="flip_date">
+                </div>
+                <br>
+
+                <div>
+                    <label for="notes">Notes:</label><br>
+                    <textarea id="notes" name="notes" rows="3"></textarea>
+                </div>
+
+                <div class="radio-group">
+                    <input type="radio" id="f2p" name="item_type" value="f2p">
+                    <label for="f2p">F2P</label>
+                    <input type="radio" id="p2p" name="item_type" value="p2p">
+                    <label for="p2p">P2P</label>
+                </div>
+
+                <div class="btn-container">
+                    <input type="submit" value="Save Log Entry">
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+</html>
